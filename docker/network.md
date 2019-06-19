@@ -1,33 +1,37 @@
-Networking Basic Commands
-List all Docker network commands:
-docker network -h
-List all Docker networks on the host:
-docker network ls
-The following command will give you the complete network ID without truncating, this ID you can get by even inspecting the docker network 
+## Networking Basic Commands
 
-docker network ls --no-trunc
-Getting detailed info on a network:
-docker network inspect [NAME]
-Creating a network:
-docker network create br00
-Deleting a network:
-docker network rm [NAME]
-Remove all unused networks:
-docker network prune
+#### List all Docker network commands:
+_docker network -h_
 
-Adding and Removing containers to a network
-Create a container with no network:
-docker container run -d --name network-test03 -p 8081:80 nginx
-Create a new network:
-docker network create br01
-Add the container to the bridge network:
-docker network connect br01 network-test03
-Inspect network-test03 to see the networks:
-docker container inspect network-test03
-Remove network-test03 from br01:
-docker network disconnect br01 network-test03
+#### List all Docker networks on the host:
+_docker network ls_
 
-Creating a network and defining a Subnet and Gateway
+The following command will give you the complete network ID without truncating, this ID you can get by even inspecting the docker network as well
+_docker network ls --no-trunc_
+
+### Getting detailed info on a network:
+_docker network inspect [NAME]_
+### Creating a network:
+_docker network create br00_
+### Deleting a network:
+_docker network rm [NAME]_
+### Remove all unused networks:
+_docker network prune_
+
+## Adding and Removing containers to a network
+
+### Create a container with no network:
+_docker container run -d --name network-test -p 8081:80 nginx_
+### Create a new network:
+_docker network create networktest01_
+###  the container to the bridge network:
+_docker network connect networktest01 network-test_
+### Inspect network-test to see the networks:
+_docker container inspect network-test_
+### Remove network-test03 from br01:
+_docker network disconnect networktest01 network-test03_
+
+## Creating a network and defining a Subnet and Gateway
 
 
 
